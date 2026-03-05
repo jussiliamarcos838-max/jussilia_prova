@@ -11,6 +11,7 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', Arial, sans-serif;
+      scroll-behavior: smooth;  
     }
 
     body {
@@ -19,13 +20,19 @@
       color: #78350f;
     }
  
+    
     .cabecalho {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       background: #b45309;
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
     }
 
     .cabecalho h1 a {
@@ -57,16 +64,16 @@
       color: #78350f;
       transform: scale(1.05);
     }
- 
+
     main {
-      padding: 80px 20px;
+      padding: 140px 20px 40px 20px;  
       display: flex;
       justify-content: center;
     }
 
     .box-trimestre {
       background: #ffffff;
-      max-width: 800px;
+      max-width: 900px;
       width: 100%;
       padding: 50px 40px;
       border-radius: 25px;
@@ -79,25 +86,135 @@
       color: #b45309;
       margin-bottom: 30px;
     }
+
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 20px;
+      background: white;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      width: 30%;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .cardi {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .conteudo {
+      display: flex;
+      gap: 20px;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+    }
+
+    .box-texto {
+      background: rgb(3, 3, 3);
+      padding: 25px;
+      border-radius: 8px;
+      width: 48%;
+    }
+
+    .box-texto h2, .box-texto h3 {
+      margin-bottom: 10px;
+      color: #f9fafb;
+    }
+
+    footer {
+      background-color: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 20px;
+      border-radius: 15px;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
  
+    section {
+      scroll-margin-top: 100px;  
+    }
   </style>
 </head>
 
 <body>
 
+   
   <header class="cabecalho">
     <h1><a href="../index.html">HOME</a></h1>
-
     <nav class="menu">
-      <a href="trimestre1.html">I Trimestre</a>
-      <a href="trimestre2.html">II Trimestre</a>
-      <a href="trimestre3.html">III Trimestre</a>
+      <a href="#cards">Galeria</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#footer">Contato</a>
     </nav>
   </header>
 
   <main>
     <div class="box-trimestre">
-     
+
+       
+      <section id="cards" class="cards">
+        <div>
+          <img src="../files/b.jpg" class="cardi"> 
+        </div>
+        <div>
+          <img src="../files/a.jpg" class="cardi">
+        </div>
+        <div>
+          <img src="../files/b.jpg" class="cardi">
+        </div>
+      </section>
+
+       
+      <section id="conteudo" class="conteudo">
+        <div class="box-texto">
+          <h2>Conheça Jussilia</h2>
+          <p>
+            Jussilia é uma jovem estudante que enfrenta uma rotina intensa. 
+            Além de se dedicar aos estudos no período noturno, ela também trabalha durante o dia.
+          </p>
+          <p>
+            Apesar das dificuldades, Jussilia demonstra coragem, disciplina e determinação. 
+            Ela acredita que o esforço diário a levará a conquistar seus sonhos e objetivos.
+          </p>
+          <p>
+            Sua história é um exemplo de perseverança para todos que enfrentam desafios, 
+            mostrando que a educação e o trabalho podem caminhar juntos, mesmo em circunstâncias difíceis.
+          </p>
+        </div>
+
+        <div class="box-texto">
+          <h3>Desafios e Superações</h3>
+          <p>✔ Conciliar estudo e trabalho sem perder o foco nos objetivos.</p>
+          <p>✔ Lidar com cansaço físico e emocional diariamente.</p>
+          <p>✔ Manter disciplina e organização diante da rotina intensa.</p>
+          <p>✔ Superar obstáculos financeiros e sociais para seguir em frente.</p>
+          <p>✔ Inspirar outras pessoas com sua determinação e coragem.</p>
+        </div>
+      </section>
+
+       
+      <footer id="footer">
+        <p>© 2026 - História de Jussilia</p>
+        <p>Desenvolvido por Inória Reais</p>
+      </footer>
+
     </div>
   </main>
 
