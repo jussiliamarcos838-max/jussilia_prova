@@ -1,100 +1,264 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Trimestre</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T3 - Produtos Cadastrados</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', Arial, sans-serif;
-    }
+<style>
 
-    body {
-      background: linear-gradient(135deg, #ecfeff, #cffafe);
-      min-height: 100vh;
-      color: #134e4a;
-    }
+body{
+font-family:Arial;
+background:#f5f0e6;
+padding:20px;
+}
 
- 
-    .cabecalho {
-      background: #0f766e;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
+nav{
+background:#5c4033;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
 
-    .cabecalho h1 a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
+nav a{
+text-decoration:none;
+background:#8b5a2b;
+color:white;
+padding:10px 20px;
+border-radius:8px;
+font-weight:bold;
+}
 
-    .menu {
-      display: flex;
-      gap: 12px;
-    }
+nav a:hover{
+background:#a0522d;
+}
 
-    .menu a {
-      text-decoration: none;
-      padding: 10px 18px;
-      background: #14b8a6;
-      color: #fff;
-      border-radius: 25px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+h2{
+text-align:center;
+color:#5c4033;
+margin-top:20px;
+}
 
-    .menu a:hover {
-      background: #99f6e4;
-      color: #065f46;
-      transform: scale(1.05);
-    }
- 
-    main {
-      padding: 80px 20px;
-      display: flex;
-      justify-content: center;
-    }
+table{
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
+background:white;
+}
 
-    .box-trimestre {
-      background: #ffffff;
-      max-width: 800px;
-      width: 100%;
-      padding: 50px 40px;
-      border-radius: 25px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      text-align: center;
-    }
+th,td{
+border:1px solid #ccc;
+padding:10px;
+text-align:center;
+}
 
-    .box-trimestre h2 {
-      font-size: 30px;
-      color: #0f766e;
-      margin-bottom: 30px;
-    }
- 
-  </style>
+th{
+background:#8b5a2b;
+color:white;
+}
+
+button.excluir{
+background:#a0522d;
+color:white;
+border:none;
+padding:5px 10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button.excluir:hover{
+background:#8b5a2b;
+}
+
+.voltar{
+display:block;
+margin-top:20px;
+text-align:center;
+text-decoration:none;
+background:#5c4033;
+color:white;
+padding:10px;
+border-radius:8px;
+width:200px;
+margin-left:auto;
+margin-right:auto;
+}
+
+</style>
 </head>
 
 <body>
 
-  <header class="cabecalho">
-    <h1><a href="../index.html">HOME</a></h1>
+<nav>
+<a href="t1.html">T1</a>
+<a href="t2.html">T2</a>
+<a href="t3.html">T3</a>
+<a href="t4.html">T4</a>
+<a href="t5.html">T5</a>
+<a href="t6.html">T6</a>
+</nav>
 
-    <nav class="menu">
-      <a href="trimestre1.html">I Trimestre</a>
-      <a href="trimestre2.html">II Trimestre</a>
-      <a href="trimestre3.html">III Trimestre</a>
-    </nav>
-  </header>
+<h2>Produtos Cadastrados</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Produto</th>
+<th>Quantidade</th>
+<th>Preço</th>
+<th>Ação</th>
+</tr>
+</thead>
+
+<tbody id="tabela"></tbody>
+
+</table>
+
+<a class="voltar" href="t2.html">Cadastrar Novo Produto</a>
+
+<script>
+
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+let tabela = document.getElementById("tabela");
+
+function renderizarTabela() {
+    tabela.innerHTML = ""; // Limpa a tabela antes de renderizar
+    produtos.forEach(function(p, index){
+        tabela.innerHTML += `
+        <tr>
+            <td>${p.nome}</td>
+            <td>${p.quantidade}</td>
+            <td>${p.preco}</td>
+            <td><button class="excluir" onclick="excluirProduto(${index})">Excluir</button></td>
+        </tr>
+        `;
+    });
+}
+
+function excluirProduto(index) {
+    produtos.splice(index, 1); // Remove o produto do array
+    localStorage.setItem("produtos", JSON.stringify(produtos)); // Atualiza o localStorage
+    renderizarTabela(); // Atualiza a tabela
+}
+
+// Renderiza a tabela inicialmente
+renderizarTabela();
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T3 - Produtos Cadastrados</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f0e6;
+padding:20px;
+}
+
+nav{
+background:#5c4033;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+background:#8b5a2b;
+color:white;
+padding:10px 20px;
+border-radius:8px;
+font-weight:bold;
+}
+
+nav a:hover{
+background:#a0522d;
+}
+
+h2{
+text-align:center;
+color:#5c4033;
+margin-top:20px;
+}
+
+table{
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+border:1px solid #ccc;
+padding:10px;
+text-align:center;
+}
+
+th{
+background:#8b5a2b;
+color:white;
+}
+
+.voltar{
+display:block;
+margin-top:20px;
+text-align:center;
+text-decoration:none;
+background:#5c4033;
+color:white;
+padding:10px;
+border-radius:8px;
+width:200px;
+margin-left:auto;
+margin-right:auto;
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<tbody id="tabela"></tbody>
+
+</table>
+
+<script>
+
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+let tabela = document.getElementById("tabela");
+
+produtos.forEach(function(p){
+
+tabela.innerHTML += `
+<tr>
+<td>${p.nome}</td>
+<td>${p.quantidade}</td>
+<td>${p.preco}</td>
+</tr>
+`;
+
+});
+
+</script>
+
+</body>
+  </html>  </header>
 
   <main>
     <div class="box-trimestre">
