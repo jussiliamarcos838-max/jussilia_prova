@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>II Trimestre</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>II Trimestre</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', Arial, sans-serif;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
+}
 
-    body {
-      background: linear-gradient(135deg, #fef3c7, #fde68a);
-      min-height: 100vh;
-      color: #78350f;
-    }
- 
-    .cabecalho {
-      background: #b45309;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
+body {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  min-height: 100vh;
+  color: #78350f;
+}
 
-    .cabecalho h1 a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
+.cabecalho {
+  background: #b45309;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
 
-    .menu {
-      display: flex;
-      gap: 12px;
-    }
+.cabecalho h1 a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
 
-    .menu a {
-      text-decoration: none;
-      padding: 10px 18px;
-      background: #f59e0b;
-      color: #fff;
-      border-radius: 25px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+.menu {
+  display: flex;
+  gap: 12px;
+}
 
-    .menu a:hover {
-      background: #fde68a;
-      color: #78350f;
-      transform: scale(1.05);
-    }
- 
-    main {
-      padding: 80px 20px;
+.menu a {
+  text-decoration: none;
+  padding: 10px 18px;
+  background: #f59e0b;
+  color: #fff;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: #fde68a;
+  color: #78350f;
+  transform: scale(1.05);
+}
+
+ main {
+      padding: 140px 20px 40px 20px;  
       display: flex;
       justify-content: center;
     }
 
     .box-trimestre {
       background: #ffffff;
-      max-width: 800px;
+      max-width: 900px;
       width: 100%;
       padding: 50px 40px;
       border-radius: 25px;
@@ -79,27 +79,546 @@
       color: #b45309;
       margin-bottom: 30px;
     }
+
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 20px;
+      background: white;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      width: 30%;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .cardi {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .conteudo {
+      display: flex;
+      gap: 20px;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+    }
+
+    .box-texto {
+      background: rgb(3, 3, 3);
+      padding: 25px;
+      border-radius: 8px;
+      width: 48%;
+    }
+
+    .box-texto h2, .box-texto h3 {
+      margin-bottom: 10px;
+      color: #f9fafb;
+    }
+
+    footer {
+      background-color: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 20px;
+      border-radius: 15px;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
  
-  </style>
+
+.secao-moderna {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 0 20px;
+}
+
+.secao-moderna h2 {
+  color: #c7ba02;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.secao-moderna h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50%;
+  height: 3px;
+  background: #c7ad02;
+  transition: 0.4s;
+}
+
+.secao-moderna h2:hover::after {
+  width: 100%;
+}
+
+.lista-profissional {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-profissional li {
+  background: #ffffff;
+  margin-bottom: 15px;
+  padding: 18px 20px;
+  border-left: 5px solid #b0c702;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #0f172a;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.lista-profissional li::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #9d9d0d;
+  transition: 0.4s;
+  z-index: 0;
+}
+
+.lista-profissional li:hover::before {
+  left: 0;
+}
+
+.lista-profissional li:hover {
+  transform: translateX(10px);
+  color: #0f172a;
+  border-left: 5px solid #0f172a;
+}
+
+.lista-profissional li span {
+  position: relative;
+  z-index: 1;
+}
+
+.lista-profissional li:first-child {
+  border-left-color: #0f172a;
+}
+
+.lista-profissional li:last-child {
+  border-left-color: #c4c702;
+}
+
+.lista-profissional li:nth-child(even) {
+  background: #f1f5f9;
+}
+ 
+.tabela-profissional {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.tabela-profissional thead {
+  background: #0f172a;
+  color: #e0f2fe;
+}
+
+.tabela-profissional th,
+.tabela-profissional td {
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.tabela-profissional tbody tr {
+  background: #ffffff;
+  border-bottom: 1px solid #7b5915;
+  transition: 0.3s;
+}
+
+.tabela-profissional tbody tr:hover {
+  background: #b55011;
+  transform: scale(1.01);
+}
+
+.tabela-profissional tbody tr:nth-child(even) {
+  background: #f1f5f9;
+}
+
+.tabela-profissional td:hover {
+  background: #c78c02;
+  color: white;
+  font-weight: bold;
+}
+</style>
 </head>
 
 <body>
 
-  <header class="cabecalho">
-    <h1><a href="../index.html">HOME</a></h1>
+<header class="cabecalho">
+  <h1><a href="../index.html">HOME</a></h1>
+  <nav class="menu">
+    <a href="tt6.html">Próxima Tarefa</a>
+  </nav>
+</header>
 
-    <nav class="menu">
-      <a href="trimestre1.html">I Trimestre</a>
-      <a href="trimestre2.html">II Trimestre</a>
-      <a href="trimestre3.html">III Trimestre</a>
-    </nav>
-  </header>
+
+ <main>
+    <div class="box-trimestre">
+     <div class="trimestre-box">
+    <h1>CONTEÚDO: INTRODUÇÃO AO CSS</h1><br>
+    <p><strong>1. O que é CSS?</strong></p><br>
+    <p>CSS significa Cascading Style Sheets (Folhas de Estilo em Cascata).
+O CSS é uma linguagem usada para dar estilo às páginas Web criadas com HTML.
+Enquanto o HTML serve para estruturar o conteúdo (textos, imagens, botões),
+ o CSS é responsável pela aparência visual da página.</p><br>
+
+  <p><strong>Exemplos do que o CSS faz:</strong></p><br>
+    <p>• Mudar cores dos textos;<br>
+• Alterar o tamanho das letras;<br>
+• Definir cores de fundo;<br>
+• Posicionar elementos na página.</p><br>
+
+  <p><strong>2. Importância do CSS no Desenvolvimento Web <br> <br> 
+    O CSS é muito importante porque:</strong></p><br>
+    <p>• Melhora a aparência dos sites, tornando-os mais bonitos 
+      e organizados;<br>
+• Facilita a leitura do conteúdo;<br>
+• Permite a separação entre conteúdo e design: o HTML → conteúdo
+o CSS → aparência<br>
+• Ajuda a manter e actualizar os sites com mais facilidade;<br>
+• Garante uma melhor experiência do utilizad</p><br>
+
+ <p><strong>3. Tipos de Folhas de Estilo CSS <br> <br> 
+  Existem três formas principais de aplicar CSS em uma página HTML: <br> <br>
+3.1 CSS Inline</strong></p><br>
+    <p>O CSS inline é aplicado directamente dentro da tag HTML.
+Exemplo:
+<"p style="color: blue;">"Este texto é azul<"/p></p><br>
+<p>
+  Características: <br>
+• É simples e rápido;<br>
+• Serve para pequenas alterações;<br>
+• Não é recomendado para páginas grandes<br>
+</p>
+
+ <p><strong>3.2 CSS Interna (Internal CSS) <br> <br> 
+ <p>
+  O CSS interno é escrito dentro da própria página HTML, 
+  usando a tag <!style>. <br>
+Exemplo: <br>
+<"style><br>
+ p {<br>
+ color: green;<br>
+ }<br>
+</"style><br>
+ </p><br>
+
+ <p>
+  Características:<br>
+• Organiza melhor o código que o CSS inline;<br>
+• Aplica estilo a vários elementos ao mesmo tempo;<br>
+• É usado quando o estilo é apenas para uma página<br>
+ </p>
+    
+  </div>
+
+    </div>
+  </main>
+
 
   <main>
     <div class="box-trimestre">
-     
+     <div class="ab">
+    <h1>SINTAXE BÁSICA DO CSS E SELETORES</h1><br>
+
+    <p><strong>1. Sintaxe Básica do CSS</strong></p><br>
+
+    <p>
+      O CSS é escrito através de regras de estilo.
+      Cada regra é composta por um seletor e um bloco de declarações.
+      O seletor indica qual elemento HTML será estilizado,
+      enquanto as declarações definem como esse elemento irá aparecer.
+    </p><br>
+
+    <p><strong>Estrutura básica de uma regra CSS:</strong></p><br>
+
+    <p>
+      seletor { <br>
+      &nbsp;&nbsp;propriedade: valor; <br>
+      }
+    </p><br>
+
+    <p>
+      Exemplos do que compõe a sintaxe do CSS:<br>
+      • Seletor – escolhe o elemento HTML;<br>
+      • Propriedade – define o que será alterado;<br>
+      • Valor – indica como será a alteração;<br>
+      • Cada declaração termina com ponto e vírgula (;).<br>
+    </p><br>
+  </div><br>
+
+  <div class="ab">
+    <p><strong>2. Seletores Simples em CSS <br><br>
+      Os seletores são usados para indicar quais elementos HTML receberão estilo.
+      Os principais seletores simples são:</strong>
+    </p><br>
+
+    <p>
+      • Seletor de elemento (tag): seleciona elementos pelo nome da tag;<br>
+      • Seletor de classe: seleciona elementos que possuem uma classe específica;<br>
+      • Seletor de ID: seleciona um elemento com identificador único;<br>
+      • Seletor universal: seleciona todos os elementos da página.<br>
+    </p><br>
+  </div><br>
+
+  <div class="ab">
+    <p><strong>3. Tipos de Seletores Simples <br><br>
+      3.1 Seletor de Elemento</strong>
+    </p><br>
+
+    <p>
+      O seletor de elemento utiliza o nome da tag HTML
+      e aplica o estilo a todos os elementos desse tipo.
+      <br><br>
+      Exemplo:
+    </p>
+
+    <p>
+      p { <br>
+      &nbsp;&nbsp;color: blue; <br>
+      }
+    </p><br>
+
+    <p>
+      Características:<br>
+      • Aplica o estilo a todas as tags iguais;<br>
+      • É simples e muito utilizado;<br>
+      • Possui baixa prioridade em relação a classes e IDs.<br>
+    </p><br>
+  </div><br>
+
+  <div class="ab">
+    <p><strong>3.2 Seletor de Classe</strong></p><br>
+
+    <p>
+      O seletor de classe é identificado por um ponto (.)
+      e permite aplicar estilos a vários elementos diferentes.
+      <br><br>
+      Exemplo:
+    </p>
+
+    <p>
+      .texto { <br>
+      &nbsp;&nbsp;font-size: 18px; <br>
+      }
+    </p><br>
+
+    <p>
+      Características:<br>
+      • Pode ser reutilizado em vários elementos;<br>
+      • Usa o ponto (.) antes do nome;<br>
+      • É muito comum no desenvolvimento web.<br>
+    </p><br>
+  </div><br>
+      <div class="ab">
+    <p><strong>3.3 Seletor de ID</strong></p><br>
+
+    <p>
+      O seletor de ID utiliza o símbolo # e identifica
+      um único elemento na página HTML.
+      <br><br>
+      Exemplo:
+    </p>
+
+    <p>
+      #principal { <br>
+      &nbsp;&nbsp;background-color: lightgray; <br>
+      }
+    </p><br>
+
+    <p>
+      Características:<br>
+      • Deve ser único na página;<br>
+      • Usa o símbolo #;<br>
+      • Possui maior prioridade que classes e elementos.<br>
+    </p><br>
+  </div>
     </div>
   </main>
+
+  <main>
+    <div class="box-trimestre">
+
+       
+      <section id="cards" class="cards">
+        <div>
+          <img src="../files/b.jpg" class="cardi"> 
+        </div>
+        <div>
+          <img src="../files/a.jpg" class="cardi">
+        </div>
+        <div>
+          <img src="../files/b.jpg" class="cardi">
+        </div>
+      </section>
+
+       
+      <section id="conteudo" class="conteudo">
+        <div class="box-texto">
+          <h2>Conheça Jussilia</h2>
+          <p>
+            Jussilia é uma jovem estudante que enfrenta uma rotina intensa. 
+            Além de se dedicar aos estudos no período noturno, ela também trabalha durante o dia.
+          </p>
+          <p>
+            Apesar das dificuldades, Jussilia demonstra coragem, disciplina e determinação. 
+            Ela acredita que o esforço diário a levará a conquistar seus sonhos e objetivos.
+          </p>
+          <p>
+            Sua história é um exemplo de perseverança para todos que enfrentam desafios, 
+            mostrando que a educação e o trabalho podem caminhar juntos, mesmo em circunstâncias difíceis.
+          </p>
+        </div>
+
+        <div class="box-texto">
+          <h3>Desafios e Superações</h3>
+          <p>✔ Conciliar estudo e trabalho sem perder o foco nos objetivos.</p>
+          <p>✔ Lidar com cansaço físico e emocional diariamente.</p>
+          <p>✔ Manter disciplina e organização diante da rotina intensa.</p>
+          <p>✔ Superar obstáculos financeiros e sociais para seguir em frente.</p>
+          <p>✔ Inspirar outras pessoas com sua determinação e coragem.</p>
+        </div>
+      </section>
+
+       
+      <footer id="footer">
+        <p>© 2026 - História de Jussilia</p>
+        <p>Desenvolvido por Inória Reais</p>
+      </footer>
+
+    </div>
+  </main>
+
+
+<section class="secao-moderna">
+
+  <div>
+    <h2>Competências do Desenvolvedor Web</h2>
+    <ul class="lista-profissional">
+      <li><span>Planejamento e Organização de Projetos Digitais</span></li>
+      <li><span>Criação de Interfaces Responsivas</span></li>
+      <li><span>Otimização de Performance e SEO</span></li>
+      <li><span>Implementação de Segurança Básica</span></li>
+      <li><span>Manutenção e Atualização de Sistemas</span></li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Estoque da Loja</h2>
+    <table class="tabela-profissional">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Categoria</th>
+          <th>Quantidade</th>
+          <th>Preço Unitário</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Camiseta</td>
+          <td>Roupas</td>
+          <td>50</td>
+          <td>20€</td>
+          <td>Disponível</td>
+        </tr>
+        <tr>
+          <td>Calça</td>
+          <td>Roupas</td>
+          <td>30</td>
+          <td>35€</td>
+          <td>Disponível</td>
+        </tr>
+        <tr>
+          <td>Relógio</td>
+          <td>Acessórios</td>
+          <td>15</td>
+          <td>50€</td>
+          <td>Em Falta</td>
+        </tr>
+        <tr>
+          <td>Tênis</td>
+          <td>Calçados</td>
+          <td>25</td>
+          <td>60€</td>
+          <td>Disponível</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h2>Plano de Projeto</h2>
+    <table class="tabela-profissional">
+      <thead>
+        <tr>
+          <th>Fase</th>
+          <th>Atividade</th>
+          <th>Categoria</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Planejamento</td>
+          <td>Análise de Requisitos</td>
+          <td>Logística</td>
+          <td>Em Progresso</td>
+        </tr>
+        <tr>
+          <td>Planejamento</td>
+          <td>Definição de Layout</td>
+          <td>Design</td>
+          <td>Pendente</td>
+        </tr>
+        <tr>
+          <td>Desenvolvimento</td>
+          <td>Codificação do Sistema</td>
+          <td>TI</td>
+          <td>Pendente</td>
+        </tr>
+        <tr>
+          <td>Testes</td>
+          <td>Testes de Funcionalidade</td>
+          <td>Qualidade</td>
+          <td>Pendente</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
 
 </body>
 </html>
