@@ -1,105 +1,302 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>II Trimestre</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>II Trimestre</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', Arial, sans-serif;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
+}
 
-    body {
-      background: linear-gradient(135deg, #fef3c7, #fde68a);
-      min-height: 100vh;
-      color: #78350f;
-    }
+body {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  min-height: 100vh;
+  color: #78350f;
+}
+
+.cabecalho {
+  background: #b45309;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.cabecalho h1 a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.menu {
+  display: flex;
+  gap: 12px;
+}
+
+.menu a {
+  text-decoration: none;
+  padding: 10px 18px;
+  background: #f59e0b;
+  color: #fff;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: #fde68a;
+  color: #78350f;
+  transform: scale(1.05);
+}
+
+.secao-moderna {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 0 20px;
+}
+
+.secao-moderna h2 {
+  color: #0284c7;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.secao-moderna h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50%;
+  height: 3px;
+  background: #0284c7;
+  transition: 0.4s;
+}
+
+.secao-moderna h2:hover::after {
+  width: 100%;
+}
+
+.lista-profissional {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-profissional li {
+  background: #ffffff;
+  margin-bottom: 15px;
+  padding: 18px 20px;
+  border-left: 5px solid #0284c7;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #0f172a;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.lista-profissional li::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #bae6fd;
+  transition: 0.4s;
+  z-index: 0;
+}
+
+.lista-profissional li:hover::before {
+  left: 0;
+}
+
+.lista-profissional li:hover {
+  transform: translateX(10px);
+  color: #0f172a;
+  border-left: 5px solid #0f172a;
+}
+
+.lista-profissional li span {
+  position: relative;
+  z-index: 1;
+}
+
+.lista-profissional li:first-child {
+  border-left-color: #0f172a;
+}
+
+.lista-profissional li:last-child {
+  border-left-color: #0284c7;
+}
+
+.lista-profissional li:nth-child(even) {
+  background: #f1f5f9;
+}
  
-    .cabecalho {
-      background: #b45309;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
+.tabela-profissional {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
 
-    .cabecalho h1 a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
+.tabela-profissional thead {
+  background: #0f172a;
+  color: #e0f2fe;
+}
 
-    .menu {
-      display: flex;
-      gap: 12px;
-    }
+.tabela-profissional th,
+.tabela-profissional td {
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
 
-    .menu a {
-      text-decoration: none;
-      padding: 10px 18px;
-      background: #f59e0b;
-      color: #fff;
-      border-radius: 25px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+.tabela-profissional tbody tr {
+  background: #ffffff;
+  border-bottom: 1px solid #bae6fd;
+  transition: 0.3s;
+}
 
-    .menu a:hover {
-      background: #fde68a;
-      color: #78350f;
-      transform: scale(1.05);
-    }
- 
-    main {
-      padding: 80px 20px;
-      display: flex;
-      justify-content: center;
-    }
+.tabela-profissional tbody tr:hover {
+  background: #bae6fd;
+  transform: scale(1.01);
+}
 
-    .box-trimestre {
-      background: #ffffff;
-      max-width: 800px;
-      width: 100%;
-      padding: 50px 40px;
-      border-radius: 25px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      text-align: center;
-    }
+.tabela-profissional tbody tr:nth-child(even) {
+  background: #f1f5f9;
+}
 
-    .box-trimestre h2 {
-      font-size: 30px;
-      color: #b45309;
-      margin-bottom: 30px;
-    }
- 
-  </style>
+.tabela-profissional td:hover {
+  background: #0284c7;
+  color: white;
+  font-weight: bold;
+}
+</style>
 </head>
 
 <body>
 
-  <header class="cabecalho">
-    <h1><a href="../index.html">HOME</a></h1>
+<header class="cabecalho">
+  <h1><a href="../index.html">HOME</a></h1>
+  <nav class="menu">
+    <a href="tt5.html">Próxima Tarefa</a>
+  </nav>
+</header>
 
-    <nav class="menu">
-      <a href="trimestre1.html">I Trimestre</a>
-      <a href="trimestre2.html">II Trimestre</a>
-      <a href="trimestre3.html">III Trimestre</a>
-    </nav>
-  </header>
+<section class="secao-moderna">
 
-  <main>
-    <div class="box-trimestre">
-     
-    </div>
-  </main>
+  <div>
+    <h2>Competências do Desenvolvedor Web</h2>
+    <ul class="lista-profissional">
+      <li><span>Planejamento e Organização de Projetos Digitais</span></li>
+      <li><span>Criação de Interfaces Responsivas</span></li>
+      <li><span>Otimização de Performance e SEO</span></li>
+      <li><span>Implementação de Segurança Básica</span></li>
+      <li><span>Manutenção e Atualização de Sistemas</span></li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Estoque da Loja</h2>
+    <table class="tabela-profissional">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Categoria</th>
+          <th>Quantidade</th>
+          <th>Preço Unitário</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Camiseta</td>
+          <td>Roupas</td>
+          <td>50</td>
+          <td>20€</td>
+          <td>Disponível</td>
+        </tr>
+        <tr>
+          <td>Calça</td>
+          <td>Roupas</td>
+          <td>30</td>
+          <td>35€</td>
+          <td>Disponível</td>
+        </tr>
+        <tr>
+          <td>Relógio</td>
+          <td>Acessórios</td>
+          <td>15</td>
+          <td>50€</td>
+          <td>Em Falta</td>
+        </tr>
+        <tr>
+          <td>Tênis</td>
+          <td>Calçados</td>
+          <td>25</td>
+          <td>60€</td>
+          <td>Disponível</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h2>Plano de Projeto</h2>
+    <table class="tabela-profissional">
+      <thead>
+        <tr>
+          <th>Fase</th>
+          <th>Atividade</th>
+          <th>Categoria</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Planejamento</td>
+          <td>Análise de Requisitos</td>
+          <td>Logística</td>
+          <td>Em Progresso</td>
+        </tr>
+        <tr>
+          <td>Planejamento</td>
+          <td>Definição de Layout</td>
+          <td>Design</td>
+          <td>Pendente</td>
+        </tr>
+        <tr>
+          <td>Desenvolvimento</td>
+          <td>Codificação do Sistema</td>
+          <td>TI</td>
+          <td>Pendente</td>
+        </tr>
+        <tr>
+          <td>Testes</td>
+          <td>Testes de Funcionalidade</td>
+          <td>Qualidade</td>
+          <td>Pendente</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
 
 </body>
 </html>
