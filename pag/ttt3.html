@@ -1,104 +1,324 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>III Trimestre</title>
+    <meta charset="UTF-8">
+    <title>Resultados - Sistema Acadêmico</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', Arial, sans-serif;
-    }
+        body{
+            background-color:#f5f0e6;
+        }
 
-    body {
-      background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
-      min-height: 100vh;
-      color: #4c1d95;
-    }
+        header{
+            background-color:#5c4033;
+            padding:20px;
+            text-align:center;
+        }
 
-    .cabecalho {
-      background: #6d28d9;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
+        header a{
+            text-decoration:none;
+            background-color:#8b5a2b;
+            color:white;
+            padding:10px 30px;
+            border-radius:8px;
+            font-weight:bold;
+            transition:0.3s;
+        }
 
-    .cabecalho h1 a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
+        header a:hover{
+            background-color:#6b4423;
+        }
 
-    .menu {
-      display: flex;
-      gap: 12px;
-    }
+        .container-principal{
+            max-width:1000px;
+            margin:40px auto;
+            padding:30px;
+            background-color:#ffffff;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
 
-    .menu a {
-      text-decoration: none;
-      padding: 10px 18px;
-      background: #8b5cf6;
-      color: #fff;
-      border-radius: 25px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+        h2{
+            text-align:center;
+            color:#5c4033;
+            margin-bottom:10px;
+        }
 
-    .menu a:hover {
-      background: #ddd6fe;
-      color: #4c1d95;
-      transform: scale(1.05);
-    }
+        .subtitulo{
+            text-align:center;
+            color:#8b5a2b;
+            margin-bottom:30px;
+            font-size:14px;
+        }
 
-    main {
-      padding: 80px 20px;
-      display: flex;
-      justify-content: center;
-    }
+        .grade-estatisticas{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+            gap:20px;
+            margin-bottom:35px;
+        }
 
-    .box-trimestre {
-      background: #ffffff;
-      max-width: 800px;
-      width: 100%;
-      padding: 50px 40px;
-      border-radius: 25px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      text-align: center;
-    }
+        .card-estatistica{
+            background-color:#f5f0e6;
+            padding:20px;
+            border-radius:10px;
+            text-align:center;
+            transition:0.3s;
+        }
 
-    .box-trimestre h2 {
-      font-size: 30px;
-      color: #6d28d9;
-      margin-bottom: 30px;
-    }
+        .card-estatistica:hover{
+            transform:translateY(-3px);
+            box-shadow:0 5px 10px rgba(0,0,0,0.1);
+        }
 
-  </style>
+        .valor-estatistica{
+            font-size:36px;
+            font-weight:bold;
+            color:#5c4033;
+        }
+
+        .rotulo-estatistica{
+            font-size:13px;
+            color:#8b5a2b;
+            margin-top:8px;
+        }
+
+        .lista-resultados{
+            max-height:450px;
+            overflow-y:auto;
+        }
+
+        .card-aluno{
+            background-color:#faf7f2;
+            margin:12px 0;
+            padding:18px;
+            border-radius:10px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            transition:0.3s;
+            border-left:4px solid #8b5a2b;
+        }
+
+        .card-aluno:hover{
+            background-color:#f5f0e6;
+        }
+
+        .info-aluno{
+            flex:1;
+        }
+
+        .nome-aluno{
+            font-weight:bold;
+            font-size:17px;
+            color:#5c4033;
+        }
+
+        .disciplina-aluno{
+            color:#8b5a2b;
+            font-size:13px;
+        }
+
+        .detalhe-notas{
+            font-size:11px;
+            color:#aaa;
+            margin-top:5px;
+        }
+
+        .media-aluno{
+            text-align:right;
+        }
+
+        .valor-media{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .texto-situacao{
+            font-size:12px;
+            font-weight:bold;
+            margin-top:5px;
+        }
+
+        .aprovado-texto{ color:#2d6a2d; }
+        .recuperacao-texto{ color:#856404; }
+        .reprovado-texto{ color:#a0522d; }
+
+        .vazio{
+            text-align:center;
+            padding:50px;
+            color:#aaa;
+        }
+
+        .navegacao{
+            display:flex;
+            gap:15px;
+            margin-top:25px;
+        }
+
+        .nav-link{
+            flex:1;
+            text-align:center;
+            padding:10px;
+            background-color:#e0d6c8;
+            color:#5c4033;
+            text-decoration:none;
+            border-radius:8px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .nav-link:hover{
+            background-color:#8b5a2b;
+            color:white;
+        }
+
+        @media (max-width:600px){
+            .container-principal{
+                margin:20px;
+                padding:20px;
+            }
+            .card-aluno{
+                flex-direction:column;
+                text-align:center;
+            }
+            .media-aluno{
+                margin-top:15px;
+                text-align:center;
+            }
+            .navegacao{
+                flex-direction:column;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <header class="cabecalho">
-    <h1><a href="../index.html">HOME</a></h1>
+    <header>
+        <a href="ttt1.html">Registro Acadêmico</a>
+    </header>
 
-    <nav class="menu">
-      <a href="trimestre1.html">I Trimestre</a>
-      <a href="trimestre2.html">II Trimestre</a>
-      <a href="trimestre3.html">III Trimestre</a>
-    </nav>
-  </header>
+    <div class="container-principal">
+        <h2>Relatório de Desempenho</h2>
+        <div class="subtitulo">Análise geral da turma</div>
 
-  <main>
-    <div class="box-trimestre">
-      
-  </main>
+        <div class="grade-estatisticas" id="gradeEstatisticas">
+            <div class="card-estatistica">
+                <div class="valor-estatistica" id="totalAlunos">0</div>
+                <div class="rotulo-estatistica">Total de Estudantes</div>
+            </div>
+            <div class="card-estatistica">
+                <div class="valor-estatistica" id="mediaGeral">0</div>
+                <div class="rotulo-estatistica">Média da Turma</div>
+            </div>
+            <div class="card-estatistica">
+                <div class="valor-estatistica" id="totalAprovados">0</div>
+                <div class="rotulo-estatistica">Aprovados (≥10)</div>
+            </div>
+            <div class="card-estatistica">
+                <div class="valor-estatistica" id="totalRecuperacao">0</div>
+                <div class="rotulo-estatistica">Recuperação (8-9)</div>
+            </div>
+            <div class="card-estatistica">
+                <div class="valor-estatistica" id="totalReprovados">0</div>
+                <div class="rotulo-estatistica">Insuficientes (0-7)</div>
+            </div>
+        </div>
+
+        <div id="listaAlunos" class="lista-resultados">
+            <div class="vazio">Nenhum estudante cadastrado</div>
+        </div>
+
+        <div class="navegacao">
+            <a href="ttt1.html" class="nav-link">Novo Cadastro</a>
+            <a href="ttt2.html" class="nav-link">Lista de Estudantes</a>
+        </div>
+    </div>
+
+    <script>
+        function obterEstudantes() {
+            const salvo = localStorage.getItem('estudantes_academicos');
+            return salvo ? JSON.parse(salvo) : [];
+        }
+
+        function calcularMedia(n1, n2, n3) {
+            return (n1 + n2 + n3) / 3;
+        }
+
+        function obterSituacao(media) {
+            if (media >= 10) return 'Aprovado';
+            if (media >= 8) return 'Recuperação';
+            return 'Reprovado';
+        }
+
+        function obterClasseTexto(situacao) {
+            if (situacao === 'Aprovado') return 'aprovado-texto';
+            if (situacao === 'Recuperação') return 'recuperacao-texto';
+            return 'reprovado-texto';
+        }
+
+        function atualizarResultados() {
+            const estudantes = obterEstudantes();
+            const listaDiv = document.getElementById('listaAlunos');
+
+            if (estudantes.length === 0) {
+                listaDiv.innerHTML = '<div class="vazio">Nenhum estudante cadastrado</div>';
+                document.getElementById('totalAlunos').textContent = '0';
+                document.getElementById('mediaGeral').textContent = '0';
+                document.getElementById('totalAprovados').textContent = '0';
+                document.getElementById('totalRecuperacao').textContent = '0';
+                document.getElementById('totalReprovados').textContent = '0';
+                return;
+            }
+
+            let somaMedias = 0;
+            let aprovados = 0;
+            let recuperacao = 0;
+            let reprovados = 0;
+
+            listaDiv.innerHTML = estudantes.map(est => {
+                const media = calcularMedia(est.nota1, est.nota2, est.nota3);
+                somaMedias += media;
+                const situacao = obterSituacao(media);
+                const classeTexto = obterClasseTexto(situacao);
+
+                if (situacao === 'Aprovado') aprovados++;
+                else if (situacao === 'Recuperação') recuperacao++;
+                else reprovados++;
+
+                return `
+                    <div class="card-aluno">
+                        <div class="info-aluno">
+                            <div class="nome-aluno">${est.nome}</div>
+                            <div class="disciplina-aluno">${est.disciplina}</div>
+                            <div class="detalhe-notas">Notas: ${est.nota1.toFixed(1)} | ${est.nota2.toFixed(1)} | ${est.nota3.toFixed(1)}</div>
+                        </div>
+                        <div class="media-aluno">
+                            <div class="valor-media ${classeTexto}">${media.toFixed(1)}</div>
+                            <div class="texto-situacao ${classeTexto}">${situacao}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const mediaGeral = somaMedias / estudantes.length;
+            document.getElementById('totalAlunos').textContent = estudantes.length;
+            document.getElementById('mediaGeral').textContent = mediaGeral.toFixed(1);
+            document.getElementById('totalAprovados').textContent = aprovados;
+            document.getElementById('totalRecuperacao').textContent = recuperacao;
+            document.getElementById('totalReprovados').textContent = reprovados;
+        }
+
+        atualizarResultados();
+    </script>
 
 </body>
 </html>
